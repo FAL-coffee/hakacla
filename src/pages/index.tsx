@@ -10,7 +10,6 @@ const Home: NextPage = () => {
       </Head>
       <div className="container mx-auto">
         <h1>test</h1>
-        <h2>husky test</h2>
       </div>
     </>
   );
