@@ -1,4 +1,5 @@
 module.exports = {
+  'customSyntax': 'postcss-scss',
   rules: {
     'color-hex-length': 'short',
     'color-no-invalid-hex': true,
