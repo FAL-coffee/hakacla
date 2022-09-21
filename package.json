@@ -1,5 +1,6 @@
 {
   "name": "hakacla",
+  "type": "module",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,9 +12,14 @@
     "prepare": "husky install",
     "stylelint": "stylelint --fix ./src/**/*.css ./src/**/*.scss",
     "format": "prettier --write './src/**/*.(ts|tsx)'",
-    "fix": "yarn format && yarn stylelint && yarn lint"
+    "fix": "yarn format && yarn stylelint && yarn lint",
+    "vercel-build": "if-env NODE_ENV=production ?? npm run build || npm run vercel-build:dev && npx prisma db seed"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.mjs"
   },
   "dependencies": {
+    "@prisma/client": "4.3.1",
     "next": "12.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -40,6 +46,7 @@
     "postcss-nested": "^5.0.6",
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13",
+    "prisma": "^4.3.1",
     "stylelint": "^14.12.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-recess-order": "^3.0.0",
