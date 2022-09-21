@@ -13,7 +13,7 @@
     "stylelint": "stylelint --fix ./src/**/*.css ./src/**/*.scss",
     "format": "prettier --write './src/**/*.(ts|tsx)'",
     "fix": "yarn format && yarn stylelint && yarn lint",
-    "vercel-build": "if-env NODE_ENV=production ?? npm run build || npm run vercel-build:dev && npx prisma db seed"
+    "vercel-build": "npm run build && if-env NODE_ENV=development ?? npx prisma db seed"
   },
   "prisma": {
     "seed": "node prisma/seed.mjs"
