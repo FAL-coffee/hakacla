@@ -17,15 +17,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Make envfile
-      uses: SpicyPizza/create-envfile@v1.3
-      with:
-        envkey_DATABASE_URL: ""
-        envkey_GOOGLE_CLIENT_ID: ""
-        envkey_GOOGLE_CLIENT_SECRET: ""
-        directory: <directory_name>
-        file_name: .env
-        fail_on_empty: false
+    - name: Create dot env file
+    - shell: bash
+      run: |
+        touch .env
+        echo "DATABASE_URL=''" >> .env
+        echo "GOOGLE_CLIENT_ID=''" >> .env
+        echo "GOOGLE_CLIENT_SECRET=''" >> .env
     - run: npm install
     - run: npm run build --if-present
     - run: npm test
