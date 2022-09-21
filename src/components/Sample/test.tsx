@@ -1,4 +1,4 @@
-import { Sample } from '~/components/Sample'
+import { Sample } from 'src/components/Sample'
 import { render } from '@testing-library/react'
 
 describe('<Sample />', () => {
