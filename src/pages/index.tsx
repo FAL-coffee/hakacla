@@ -11,7 +11,6 @@ type ServerSideProps = {
 
 const Home: NextPage<ServerSideProps> = ({ example }) => {
   const { data: session } = useSession()
-  console.log(session)
   return (
     <>
       <Head>
