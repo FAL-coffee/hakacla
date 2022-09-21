@@ -10,6 +10,10 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    env:
+      DATABASE_URL: ""
+      GOOGLE_CLIENT_ID: ""
+      GOOGLE_CLIENT_SECRET: ""
 
     strategy:
       matrix:
@@ -17,13 +21,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Create dot env file
-    - shell: bash
-      run: |
-        touch .env
-        echo "DATABASE_URL=''" >> .env
-        echo "GOOGLE_CLIENT_ID=''" >> .env
-        echo "GOOGLE_CLIENT_SECRET=''" >> .env
     - run: npm install
     - run: npm run build --if-present
     - run: npm test
